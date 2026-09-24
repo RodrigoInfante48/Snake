@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#07060f">
+  <meta name="description" content="ECOS: un Snake donde tus rondas anteriores vuelven como serpientes fantasma.">
+  <title>ECOS · Snake con ecos</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2307060f'/%3E%3Cpath d='M3 12V4h6v4h4' fill='none' stroke='%23ff3fd2' stroke-opacity='.5' stroke-width='2'/%3E%3Cpath d='M2 11V3h6v4h5' fill='none' stroke='%232ff3ff' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="screen-menu" class="screen active">
+      <div class="menu-wrap">
+        <h1 class="logo" aria-label="ECOS"><span>ECOS</span></h1>
+        <p class="tagline" data-i18n="app.tagline"></p>
+        <nav class="menu">
+          <button data-action="campaign" class="primary" data-i18n="menu.campaign"></button>
+          <button data-action="daily">
+            <span data-i18n="menu.daily"></span>
+            <small id="daily-status"></small>
+          </button>
+          <button data-action="classic" data-i18n="menu.classic"></button>
+          <button data-action="howto" data-i18n="menu.howto"></button>
+          <button data-action="sound" id="btn-sound" class="ghost"></button>
+        </nav>
+      </div>
+    </section>
+
+    <section id="screen-levels" class="screen">
+      <div class="menu-wrap">
+        <h2 data-i18n="levels.title"></h2>
+        <div id="level-list" class="level-list"></div>
+        <button data-action="back" class="ghost" data-i18n="menu.back"></button>
+      </div>
+    </section>
+
+    <section id="screen-howto" class="screen">
+      <div class="menu-wrap howto">
+        <h2 data-i18n="howto.title"></h2>
+        <div id="howto-body"></div>
+        <h3 data-i18n="howto.controls"></h3>
+        <p data-i18n="howto.keys"></p>
+        <p data-i18n="howto.touch"></p>
+        <button data-action="back" class="ghost" data-i18n="menu.back"></button>
+      </div>
+    </section>
+
+    <section id="screen-game" class="screen">
+      <header class="hud">
+        <div class="hud-row">
+          <span id="hud-round" class="hud-round"></span>
+          <span class="hud-fruits">● <span id="hud-fruits"></span></span>
+          <span id="hud-score" class="hud-score"></span>
+          <button id="btn-pause" class="icon" aria-label="Pausa">❚❚</button>
+        </div>
+        <div class="timebar-wrap"><div id="timebar" class="timebar"></div></div>
+      </header>
+      <div id="stage" class="stage">
+        <canvas id="board"></canvas>
+        <div id="overlay" class="overlay" hidden></div>
+      </div>
+      <footer class="controls">
+        <span id="hud-status" class="hud-status"></span>
+        <button id="btn-molt" class="molt"></button>
+      </footer>
+    </section>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
